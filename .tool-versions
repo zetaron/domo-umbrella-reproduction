@@ -1,0 +1,4 @@
+elixir 1.14.0-otp-25
+erlang 25.1.1
+nodejs 18.10.0
+direnv 2.32.1
