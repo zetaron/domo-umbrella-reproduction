@@ -17,7 +17,8 @@ config :domo_umbrella_reproduction_web, DomoUmbrellaReproductionWeb.Endpoint,
   watchers: [
     # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
     esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
-  ]
+  ],
+  reloadable_compilers: [:phoenix, :domo_compiler] ++ Mix.compilers() ++ [:domo_phoenix_hot_reload]
 
 # ## SSL Support
 #

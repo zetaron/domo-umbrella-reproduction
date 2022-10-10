@@ -13,7 +13,9 @@ defmodule DomoUmbrellaReproduction.MixProject do
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      compilers: [:domo_compiler] ++ Mix.compilers() ++ [:domo_phoenix_hot_reload],
+      test_coverage: [ignore_modules: [~r/\.TypeEnsurer$/]]
     ]
   end
 
@@ -37,7 +39,8 @@ defmodule DomoUmbrellaReproduction.MixProject do
   defp deps do
     [
       {:phoenix_pubsub, "~> 2.0"},
-      {:swoosh, "~> 1.3"}
+      {:swoosh, "~> 1.3"},
+      {:domo, "~> 1.5"}
     ]
   end
 

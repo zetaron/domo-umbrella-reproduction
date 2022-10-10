@@ -11,10 +11,11 @@ defmodule DomoUmbrellaReproductionWeb.MixProject do
       lockfile: "../../mix.lock",
       elixir: "~> 1.12",
       elixirc_paths: elixirc_paths(Mix.env()),
-      compilers: [:gettext] ++ Mix.compilers(),
+      compilers: [:domo_compiler] ++ Mix.compilers() ++ [:domo_phoenix_hot_reload],
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      test_coverage: [ignore_modules: [~r/\.TypeEnsurer$/]]
     ]
   end
 
@@ -49,7 +50,8 @@ defmodule DomoUmbrellaReproductionWeb.MixProject do
       {:gettext, "~> 0.18"},
       {:domo_umbrella_reproduction, in_umbrella: true},
       {:jason, "~> 1.2"},
-      {:plug_cowboy, "~> 2.5"}
+      {:plug_cowboy, "~> 2.5"},
+      {:domo, "~> 1.5"}
     ]
   end
 
